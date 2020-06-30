@@ -445,8 +445,9 @@ header{
 .book_item > img{
     position: absolute;
     right: 10px;
-    top: 46%;
-    cursor: text;
+
+    top: 35px;
+    cursor: pointer;
 }
 .book_item > input, .book_select{
     margin-bottom: 10px;
@@ -519,7 +520,9 @@ header{
     border-style: solid;
 }
 /*Name*/
-
+#date{
+    cursor: pointer;
+}
 .name_input, .datepicker-here{
     height: 36px;
     outline: none;
