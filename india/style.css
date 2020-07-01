@@ -533,7 +533,9 @@ header{
     border-radius: 7px;
     padding: 0 45px 0 10px;
     width: 237px;
-
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .name_input::placeholder{
