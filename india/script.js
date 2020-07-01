@@ -1,9 +1,8 @@
 let today = new Date(),
 tommorrow = new Date(Date.now() + 63113852000),
-// today_h = today.getHours,
-// today_m = today.getMinutes;
+
 today_time = `${today.getHours()}:${today.getMinutes()}`;
-console.log(today_time);
+
 (function($) {
     $(function() {
         
@@ -13,16 +12,16 @@ console.log(today_time);
         
         tommorrow = new Date(Date.parse(today.getFullYear() + 3));
 
-         $('#date').datepicker({
-             // Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня, а также не дальше, чем на 2 года вперёд.
+        $('#date').datepicker({
+            // Можно выбрать тольkо даты, идущие за сегодняшним днем, включая сегодня, а также не дальше, чем на 2 года вперёд.
             minDate: today,
             maxDate: tommorrow
 
-         });
+        });
          // Сделаем неактивными воскресенье и субботу
-         let disabledDays = [0, 6];
+        let disabledDays = [0, 6];
 
-         $('#date').datepicker({
+        $('#date').datepicker({
             
              onRenderCell: function (date, cellType) {
                  if (cellType == 'day') {
@@ -34,18 +33,44 @@ console.log(today_time);
                      }
                  }
              }
-         })
+        })
 
         
     });
     })(jQuery);
+var cleave = new Cleave('#time', {
+    time: true,
+    timePattern: ['h', 'm']
+});
+function validName(){
+    var re = /\w*\s(\w*\S)/;
+    var myName = document.getElementById('name').value;
+    var valid = re.test(myName);
+    if (valid == false) document.getElementById('message_name').innerHTML = 'Please, enter your full name and try again.';
+    else document.getElementById('message_name').innerHTML = '';
+
+    if (document.getElementsByClassName('name_input')[0].value == ''){
+        document.getElementById('message_name').innerHTML = 'Please, enter your full name';
+    }
+    return valid;
+}
+function validDate(){
+    let valid = false;
+    if (document.getElementById('date').value == ''){
+        document.getElementById('message_date').innerHTML = 'Please, enter your full name.';
+        valid = false;
+    }else{
+        valid = true;
+    }
+    return valid;
+}
 function validMail() {
     var re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
     var myMail = document.getElementById('email').value;
     var valid = re.test(myMail);
-    if (valid == false) document.getElementById('message_mail').innerHTML = 'Your email address is incorrect. Try again.';
+    if (valid == false) document.getElementById('message_mail').innerHTML = 'Your email address is incorrect. Please, try again.';
     else document.getElementById('message_mail').innerHTML = '';
-   // document.getElementById('message_mail').innerHTML = output;
+
     return valid;
 }
     
@@ -53,51 +78,35 @@ function validPhone() {
     var re = /^\d[\d\(\)\ -]{4,14}\d$/;
     var myPhone = document.getElementById('phone').value;
     var valid = re.test(myPhone);
-    if (valid == false) document.getElementById('message_phone').innerHTML = 'Your phone number is incorrect. Try again.';
+    if (valid == false) document.getElementById('message_phone').innerHTML = 'Your phone number is incorrect. Please, try again.';
     else document.getElementById('message_phone').innerHTML ='';
     return valid;
 }  
- function validDate(){
-     console.log(today.getFullYear(), tommorrow.getFullYear()-1,tommorrow.getFullYear() )
-     //let re = new RegExp('/^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(2020|2021|2022)[\s\D]([01]?[0-9]|2[0-3]):[0-5][0-9]/');
-     let re = /(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.2020[\s\D]([01]?[0-9]|2[0-3]):[0-5][0-9]/;
-    // re = new RegExp(re);
-     // console.log(re);
-     var myDate = document.getElementById('date').value;
-     console.log(myDate);
-    var valid = re.test(myDate);
-     if (valid == false){
-         console.log('false');
-        document.getElementById('message_date').innerHTML = 'Please, enter correct date and time.';
-     } 
-    else{
-         console.log('true');
-        document.getElementById('message_date').innerHTML ='';
-    } 
-     return valid;
-}
+
 function validTime(){
-     var re = /([01]?[0-9]|2[0-3]):[0-5][0-9]/;
-     var myTime = document.getElementById('time').value;
-     var valid = re.test(myTime);
-     if (valid == false) document.getElementById('message_time').innerHTML = 'Your time is incorrect. Try again.';
-     else document.getElementById('message_time').innerHTML ='';
-     return valid;
+    let hours = `${document.getElementById('time').value[0]}${document.getElementById('time').value[1]}`,
+    valid = false;
+    if(hours<8 || hours >22){
+        document.getElementById('message_time').innerHTML = 'We work from 08:00 to 22:00. Please, enter correct time.';
+    }else if(hours == 00 || hours == 'undefinedundefined'){
+        document.getElementById('message_time').innerHTML = 'Please, enter correct time.';
+    }else{
+        document.getElementById('message_time').innerHTML ='';
+        valid =true;
+    } 
+   console.log(hours);
+   return valid;
 }
 let submit_btn = document.getElementById('submit_btn');
 submit_btn.onclick = function(){
+    validName()
+    validDate()
     validMail() 
     validPhone()
-     //validDate()
-    // validTime();
-     console.log(document.getElementById('time').value)
+    validTime();
+console.log(validName(),validDate(), validMail(), validPhone(), validTime());
+    if(validName() && validDate() && validMail() && validPhone() && validTime()){
+        document.getElementById('message_submit').innerHTML ='Excellent! Confirmation of your booking will be sent to your email address!';
+    }
 }
-// let time_input = document.getElementById('time');
-// time_input.onchange = function(){
-//     let re_fi = /([01]?[0-9]|2[0-3])/;
-//     let valid = re_fi.test(time_input.value);
-//     if(valid && ){
-//         time_input.innerHTML = `${time_input.innerHTML}:`;
-//     }
-// }
 

@@ -432,10 +432,12 @@ header{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    width: 95%;
+    margin: 0 auto 20px auto;
 }
 .book_item{
     position: relative;
-    margin-bottom: 15px;
+    margin: 0 7.5px 15px 7.5px;
     display: flex;
     flex-direction: column;
 }
@@ -455,6 +457,7 @@ header{
 .book_item > label{
     font-size: 10px;
     color: red;
+    width: 80%;
 }
 .select{
     position: relative;
@@ -548,10 +551,34 @@ header{
 
 
 
+#submit_btn{
+    display: block;
 
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-color:#2a3b40;
+    color: #fff;
+    border: 2px solid #fff;
+    font-weight: 700;
+    border-radius: 7px;
+    padding: 10px 45px;
+    width: 237px;
+    margin: 0 auto 20px auto;
+    transition: .2s all ease;
+}
+#submit_btn:hover{
+    background-color:#fff;
+    color:#2a3b40 ;
+    cursor: pointer;
+}
 
-
-
+#message_submit{
+    font-family: 'Raleway', sans-serif;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    display: block;;
+}
 
 
 
@@ -661,6 +688,9 @@ header{
         font-size: 25px;
         width: 90%;
     }
+
+
+
 }
 @media screen and (max-width:700px){
     .header_rect > h2{
