@@ -451,6 +451,7 @@ header{
     margin-bottom: 10px;
 }
 .book_item > label{
+    max-width: 190px;
     font-size: 10px;
     color: red;
     width: 80%;
@@ -721,7 +722,7 @@ header{
 footer{
     font-family: 'Raleway', sans-serif;
     color: #2d2f2a;
-    padding-top: 75px;
+    padding:75px 0 80px 0;
     width: 100%;
     background-color: #d4d8d9;
     position: relative;
