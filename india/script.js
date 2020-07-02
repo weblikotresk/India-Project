@@ -50,14 +50,14 @@ function validName(){
     else document.getElementById('message_name').innerHTML = '';
 
     if (document.getElementsByClassName('name_input')[0].value == ''){
-        document.getElementById('message_name').innerHTML = 'Please, enter your full name';
+        document.getElementById('message_name').innerHTML = 'Please, enter your full name.';
     }
     return valid;
 }
 function validDate(){
     let valid = false;
     if (document.getElementById('date').value == ''){
-        document.getElementById('message_date').innerHTML = 'Please, enter your full name.';
+        document.getElementById('message_date').innerHTML = 'Please, enter your date.';
         valid = false;
     }else{
         valid = true;
@@ -94,7 +94,6 @@ function validTime(){
         document.getElementById('message_time').innerHTML ='';
         valid =true;
     } 
-   console.log(hours);
    return valid;
 }
 let submit_btn = document.getElementById('submit_btn');
