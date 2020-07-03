@@ -108,4 +108,17 @@ console.log(validName(),validDate(), validMail(), validPhone(), validTime());
         document.getElementById('message_submit').innerHTML ='Excellent! Confirmation of your booking will be sent to your email address!';
     }
 }
+let opened =false;
+document.getElementsByClassName('menu__btn')[0].onclick = function(){
+    
+    if(opened == false){
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
+        document.getElementsByClassName('menu__btn')[0].style.position = 'fixed';
+        opened = true;
+    }else{
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        document.getElementsByClassName('menu__btn')[0].style.position = 'relative';
+        opened = false;
+    }
 
+}
