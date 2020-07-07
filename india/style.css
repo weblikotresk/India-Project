@@ -14,10 +14,14 @@ font-family: 'Roboto', sans-serif;
 }
 
 /*==========================HEADER============================*/
+html.webplossless  header{
+    background-image: url('img/header_back.webp');
+}
 header{
     background: url('img/header_back.png') no-repeat center / cover;
     padding: 60px 0 222px 0;
 }
+
 .header_toolbar{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -334,7 +338,9 @@ header{
 #plate{
     background:url('img/plate_back.png') no-repeat center / cover ;
     padding: 88px 0;
-
+}
+html.webplossless #plate{
+    background-image: url('img/plate_back.webp');
 }
 .plate_content{
     background-color:rgba(255, 255, 255, 0.82);
@@ -462,6 +468,9 @@ header{
     color: #2a3b40;
     position: relative;
 }
+html.webplossless  #cuisine{
+    background-image: url('img/cuisine_back.webp');
+}
 #cuisine > h3{
     padding-top: 100px;
     margin: 0 5px 40px;
@@ -541,7 +550,9 @@ header{
     padding-top: 240px;
     background: url('img/menu_back.png') no-repeat center / cover;
 }
-
+html.webplossless  #menu{
+    background-image: url('img/menu_back.webp');
+}
 .menu_rect{
     background-color: rgba(255, 255, 255, 0.82);
 }
@@ -597,7 +608,9 @@ header{
     height: 62.5vw;
     background: url('img/submenu_back.png') no-repeat center / cover;
 }
-
+html.webplossless  #submenu_img{
+    background-image: url('img/submenu_back.webp');
+}
 /*=========================BOOK==================================*/
 
 #book{
@@ -808,7 +821,9 @@ header{
     background: url('img/subbook.png') no-repeat center / cover;
     height: 60.4vw;
 }
-
+html.webplossless  #subbook_img{
+    background-image: url('img/subbook.webp');
+}
 /*=======================MENU-N===========================================*/
 
 #menu_n{

@@ -122,3 +122,13 @@ document.getElementsByClassName('menu__btn')[0].onclick = function(){
     }
 
 }
+
+
+if(document.getElementsByTagName('html')[0].classList.contains("webplossless")){
+    let images = document.getElementsByTagName('img');
+    for(let i = 0;i<images.length;i++){
+        if(images[i].src.endsWith('.png')){
+            images[i].src = images[i].src.replace('.png','.webp');
+        }
+    }
+}
